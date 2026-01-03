@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "f1dc9ee5-ac53-46f1-81ae-7d44c7a71316",
+		"name": "API-Testing-Selise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49249108",
+		"_collection_link": "https://nadim-mostafa-selise-6675824.postman.co/workspace/10b7c0c7-3074-4f6c-a81d-b937bfd57eee/collection/49249108-f1dc9ee5-ac53-46f1-81ae-7d44c7a71316?action=share&source=collection_link&creator=49249108"
+	},
+	"item": [
+		{
+			"name": "CreateBook",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//generate random genre for json property\r",
+							"const genres = [\"Science Fiction\", \"Fantasy\", \"Mystery\", \"Romance\", \"Non-Fiction\"];\r",
+							"const genre = genres[Math.floor(Math.random() * genres.length)];\r",
+							"pm.variables.set(\"genre\",genre);\r",
+							"\r",
+							"//generate random yearPublished for json property\r",
+							"const minYear = 1900;\r",
+							"const maxYear = new Date().getFullYear();\r",
+							"const yearPublished = Math.floor(Math.random() * (maxYear - minYear + 1)) + minYear;\r",
+							"pm.variables.set(\"yearPublished\",yearPublished);\r",
+							"\r",
+							"\r",
+							"//if the header does not exist then it will adds else it will update the header value.\r",
+							"pm.request.headers.upsert({\r",
+							"    key: \"Content-Type\",\r",
+							"    value: \"application/json\",\r",
+							"    description: \"Sets the content type of the request body to JSON\"\r",
+							"});\r",
+							"\r",
+							"const apikey=pm.collectionVariables.get(\"apiKey\");\r",
+							"\r",
+							"pm.request.headers.add({\r",
+							"    key: 'api-key', \r",
+							"    value: '{{apikey}}' \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//response body\r",
+							"const responseBody = pm.response.json();\r",
+							"\r",
+							"//Verify the response status code is 201\r",
+							"pm.test(\"Verify the response status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201); \r",
+							"});\r",
+							"\r",
+							"//Verify the response status message should be Created\r",
+							"pm.test(\"Verify the status message should be Created\", function () {\r",
+							"    pm.response.to.have.status(\"Created\")\r",
+							"    //pm.expect(pm.response.status).to.eql(\"Created\");\r",
+							"});\r",
+							"\r",
+							"//The response should have a body\r",
+							"pm.test(\"Verify the response should have a body\", function () {\r",
+							"    pm.response.to.have.body;\r",
+							"});\r",
+							"\r",
+							"//Verify the response have only a JSON body.\r",
+							"pm.test(\"Verify the response, it should have only a JSON Body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"// Verify the response Body is not empty\r",
+							"pm.test(\"Verify the response body should not empty\", function () {\r",
+							"    pm.expect(pm.response.json()).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"// Check the response bdoy is an JSON object\r",
+							"pm.test(\"Verify the response body should be a JSON object\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"// Check the response body has the expected properties\r",
+							"pm.test(\"Verify the response body contains the expected properties\", function () {\r",
+							"    pm.expect(responseBody).to.includes.all.keys(['id','title','author','genre','yearPublished']);\r",
+							"})\r",
+							"\r",
+							"// fetch and set the id from the response body if the response code is 201\r",
+							"if (pm.response.code === 201) {\r",
+							"    pm.collectionVariables.set(\"bookId\", responseBody.id);\r",
+							"}\r",
+							"\r",
+							"//if the response is 201 then fetch and set the book title from the response\r",
+							"let bookTitle= responseBody.title\r",
+							"//console.log(bookTitle)\r",
+							"if(pm.response.code==201){\r",
+							"    pm.collectionVariables.set(\"createBookTitle\",bookTitle);\r",
+							"}\r",
+							"\r",
+							"//Script work flow\r",
+							"// Chaining request\r",
+							"if(pm.response.code==201){\r",
+							"    pm.execution.setNextRequest(\"UpdateBookUsingId\")\r",
+							"}else{\r",
+							"    pm.execution.setNextRequest(\"\")\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"{{$randomWords}}\",\r\n    \"author\":\"{{$randomFullName}}\",\r\n    \"genre\": \"{{genre}}\",\r\n    \"yearPublished\":{{yearPublished}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/{{endpoint}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBookUsingId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//if the header does not exist then it will adds else it will update the header value.\r",
+							"pm.request.headers.upsert({\r",
+							"    key: \"Content-Type\",\r",
+							"    value: \"application/json\",\r",
+							"    description: \"Sets the content type of the request body to JSON\"\r",
+							"});\r",
+							"\r",
+							"const apikey=pm.collectionVariables.get(\"apiKey\");\r",
+							"\r",
+							"pm.request.headers.add({\r",
+							"    key: 'api-key', \r",
+							"    value: '{{apikey}}' \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//response body\r",
+							"const updateResponseBody = pm.response.json();\r",
+							"\r",
+							"//Verify the response status code is 200\r",
+							"pm.test(\"Verify the response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200); \r",
+							"});\r",
+							"\r",
+							"//Verify the response status message should be OK\r",
+							"pm.test(\"Verify the status message should be OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\")\r",
+							"});\r",
+							"\r",
+							"//The response should have a body\r",
+							"pm.test(\"Verify the response should have a body\", function () {\r",
+							"    pm.response.to.have.body;\r",
+							"});\r",
+							"\r",
+							"//Verify the response have only a JSON body.\r",
+							"pm.test(\"Verify the response, it should have only a JSON Body\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"// Verify the response Body is not empty\r",
+							"pm.test(\"Verify the response body should not empty\", function () {\r",
+							"    pm.expect(pm.response.json()).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"// Check the response bdoy is an JSON object\r",
+							"pm.test(\"Verify the response body should be a JSON object\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('object');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// fetch the updated book title from the response\r",
+							"const updatedTitle = updateResponseBody.title;\r",
+							"\r",
+							"// verify the updated book title is not the same as the original title\r",
+							"pm.test(\"verify the updated book title should not the same as the original title\", function () {\r",
+							"    pm.expect(updatedTitle).to.not.equal(pm.collectionVariables.get(\"createBookTitle\"));\r",
+							"});\r",
+							"\r",
+							"// Script Workflow\r",
+							"//chaing request\r",
+							"if(pm.response.code==200){\r",
+							"    pm.execution.setNextRequest(\"DeleteBookUsingId\")\r",
+							"}else{\r",
+							"    pm.test(\"Verify the response ndicate an error\", function () {\r",
+							"        pm.response.to.be.error\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{$randomWords}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/{{endpoint}}/{{bookId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{endpoint}}",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBookUsingId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const apikey=pm.collectionVariables.get(\"apiKey\");\r",
+							"pm.request.headers.add({\r",
+							"    key: 'api-key', \r",
+							"    value: '{{apikey}}' \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Verify the response status code is 204\r",
+							"pm.test(\"Verify the response status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204); \r",
+							"});\r",
+							"\r",
+							"//Verify the response status message should be No Content\r",
+							"pm.test(\"Verify the status message should be No Content\", function () {\r",
+							"    pm.response.to.have.status(\"No Content\")\r",
+							"    //pm.expect(pm.response.status).to.eql(\"Created\");\r",
+							"});\r",
+							"\r",
+							"//Verify the response body should be empty\r",
+							"pm.test(\"Verify the response body should be empty\", function () {\r",
+							"    pm.expect(pm.response.text()).to.eql(\"\");\r",
+							"});\r",
+							"\r",
+							"//Script Workflow\r",
+							"//Chaining request\r",
+							"if(pm.response.code==204){\r",
+							"    pm.execution.setNextRequest(\"\")\r",
+							"}else{\r",
+							"    pm.test(\"Verify the response ndicate an error\", function () {\r",
+							"        pm.response.to.be.error\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"{{$randomWords}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/{{endpoint}}/{{bookId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{endpoint}}",
+						"{{bookId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "postmanrulz",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://library-api.postmanlabs.com"
+		},
+		{
+			"key": "endpoint",
+			"value": "books"
+		},
+		{
+			"key": "bookId",
+			"value": "6011f934-de40-491c-b341-40e4c811554c"
+		},
+		{
+			"key": "createBookTitle",
+			"value": "intermediate Handmade Concrete Music Functionality"
+		}
+	]
+}
