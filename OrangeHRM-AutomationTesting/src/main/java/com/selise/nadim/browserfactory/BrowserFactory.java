@@ -1,13 +1,16 @@
 package com.selise.nadim.browserfactory;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
-
+	
+	static List<WebElement> allNameElements;
 	static WebDriver driver;
 
 	// this method is need to get the driver 

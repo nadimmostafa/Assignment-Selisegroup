@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">6 methods, 1 failed,   5 passed</span>
+                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -128,6 +128,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.selise.nadim.testscripts.TC001_VerifyLogin" class="method navigator-link" hash-for-method="verifyLoginFunctionality">verifyLoginFunctionality</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.selise.nadim.testscripts.TC002_VerifyPIMModule" class="method navigator-link" hash-for-method="verifyNamesNotEmpty">verifyNamesNotEmpty</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -183,6 +188,13 @@
                   <a name="clickOnPIMTab">
                   </a> <!-- clickOnPIMTab -->
                   <span class="method-name">clickOnPIMTab</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyNamesNotEmpty">
+                  </a> <!-- verifyNamesNotEmpty -->
+                  <span class="method-name">verifyNamesNotEmpty</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -279,36 +291,40 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(6);
+data.addRows(7);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifyLoginFunctionality')
 data.setCell(0, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
-data.setCell(0, 3, 24750);
+data.setCell(0, 3, 3344);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'clickOnPIMTab')
 data.setCell(1, 2, 'com.selise.nadim.testscripts.TC002_VerifyPIMModule')
-data.setCell(1, 3, 24617);
+data.setCell(1, 3, 2645);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifyAdminModuleTabPresent')
-data.setCell(2, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
-data.setCell(2, 3, 4111);
+data.setCell(2, 1, 'verifyNamesNotEmpty')
+data.setCell(2, 2, 'com.selise.nadim.testscripts.TC002_VerifyPIMModule')
+data.setCell(2, 3, 1094);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'verifyUserProfileName')
+data.setCell(3, 1, 'verifyAdminModuleTabPresent')
 data.setCell(3, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
-data.setCell(3, 3, 71);
+data.setCell(3, 3, 809);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'verifyTitleIsDashboard')
+data.setCell(4, 1, 'verifyUserProfileName')
 data.setCell(4, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
-data.setCell(4, 3, 50);
+data.setCell(4, 3, 32);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'verifyPIMModuleTabPresent')
+data.setCell(5, 1, 'verifyTitleIsDashboard')
 data.setCell(5, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
-data.setCell(5, 3, 45);
+data.setCell(5, 3, 27);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'verifyPIMModuleTabPresent')
+data.setCell(6, 2, 'com.selise.nadim.testscripts.TC001_VerifyLogin')
+data.setCell(6, 3, 25);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 53 seconds</span>
+              <span class="suite-total-time">Total running time: 7 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -350,39 +366,43 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">verifyLoginFunctionality</span>
-                <span class="method-start">15323 ms</span>
+                <span class="method-start">7067 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">verifyAdminModuleTabPresent</span>
-                <span class="method-start">40102 ms</span>
+                <span class="method-start">10420 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">verifyPIMModuleTabPresent</span>
-                <span class="method-start">44219 ms</span>
+                <span class="method-start">11231 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">verifyTitleIsDashboard</span>
-                <span class="method-start">44269 ms</span>
+                <span class="method-start">11261 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">verifyUserProfileName</span>
-                <span class="method-start">44324 ms</span>
+                <span class="method-start">11290 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.selise.nadim.testscripts.TC002_VerifyPIMModule</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">clickOnPIMTab</span>
-                <span class="method-start">44683 ms</span>
+                <span class="method-start">11513 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyNamesNotEmpty</span>
+                <span class="method-start">14160 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.selise.nadim.testscripts.TC001_VerifyLogin</div> <!-- chronological-class-name -->
               <div class="configuration-test after">
                 <span class="method-name">tearUp</span>
-                <span class="method-start">69304 ms</span>
+                <span class="method-start">15255 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

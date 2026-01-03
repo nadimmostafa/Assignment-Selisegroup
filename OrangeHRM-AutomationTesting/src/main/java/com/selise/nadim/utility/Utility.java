@@ -6,8 +6,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -23,6 +25,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utility {
 
+	static List<String> storeNames;
+	static List<WebElement> allNameElements;
+	static List<WebElement> allEmployeeElements;
+	static List<String> storeStatus;
+	
+	
 	// click element
 	public static void clickOnElement(WebDriver driver, By locator) {
 		try {
@@ -113,6 +121,58 @@ public class Utility {
 			return null;
 		}
 
+	}
+	
+	public static void scrollIntoView(WebDriver driver, int x_axis, int y_axis) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy("+x_axis+","+y_axis+")");
+	}
+	
+	
+	public static boolean getEmployeeList(WebDriver driver, By locForName, By locForStatus ) {
+		allNameElements = driver.findElements(locForName);
+		allEmployeeElements = driver.findElements(locForStatus);
+		
+		storeNames = new ArrayList<>();
+		storeStatus = new ArrayList<String>();
+		
+		int i=0;
+		while(i<5) {
+			storeNames.add(allNameElements.get(i).getText());
+			
+			if(!((allEmployeeElements.get(i).getText())==null)) {
+				storeStatus.add(allEmployeeElements.get(i).getText());
+			}else {
+				storeStatus.add("");
+			}
+			
+			i++;
+		}
+		
+		for(String s:storeNames) {
+			System.out.println(s);
+		}
+		
+		for(String s:storeStatus) {
+			System.out.println(s);
+		}
+		
+		// check Extracted name is not empty
+		return checkNonEmptyList(storeNames);
+		
+	}
+	
+	// check Extracted name is not empty
+	public static boolean checkNonEmptyList(List<String> names) {
+		boolean allNamesValid = true;
+        for (String name : names) {
+            if (name.isEmpty()) {
+                allNamesValid = false;
+                break;
+            }
+        }
+        
+        return allNamesValid;
 	}
 
 }

@@ -18,4 +18,10 @@ public class TC002_VerifyPIMModule extends BaseClass{
 		String actualText=dashboard.getPIMTabEmployeeListText();
 		Assert.assertEquals(actualText, expectedText);
 	}
+	
+	@Test(dependsOnMethods = "com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality")
+	public void verifyNamesNotEmpty() {
+		Assert.assertTrue(dashboard.extractEmployee());
+	}
+	
 }
