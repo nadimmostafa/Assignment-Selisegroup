@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-01-03T12:13:56 BDT" name="Suite" finished-at="2026-01-03T12:15:06 BDT" duration-ms="69538">
+    <groups>
+    </groups>
+    <test started-at="2026-01-03T12:13:56 BDT" name="Test" finished-at="2026-01-03T12:15:06 BDT" duration-ms="69538">
+      <class name="com.selise.nadim.testscripts.TC001_VerifyLogin">
+        <test-method is-config="true" signature="startUp()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:13:56 BDT" name="startUp" finished-at="2026-01-03T12:14:11 BDT" duration-ms="15246" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startUp -->
+        <test-method signature="verifyLoginFunctionality()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:14:12 BDT" name="verifyLoginFunctionality" finished-at="2026-01-03T12:14:36 BDT" duration-ms="24750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginFunctionality -->
+        <test-method signature="verifyAdminModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:14:36 BDT" name="verifyAdminModuleTabPresent" finished-at="2026-01-03T12:14:40 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="4111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdminModuleTabPresent -->
+        <test-method signature="verifyPIMModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:14:40 BDT" name="verifyPIMModuleTabPresent" finished-at="2026-01-03T12:14:40 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="45" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPIMModuleTabPresent -->
+        <test-method signature="verifyTitleIsDashboard()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:14:40 BDT" name="verifyTitleIsDashboard" finished-at="2026-01-03T12:14:41 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="50" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleIsDashboard -->
+        <test-method signature="verifyUserProfileName()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:14:41 BDT" name="verifyUserProfileName" finished-at="2026-01-03T12:14:41 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="71" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Keyur Bhavsar] but found [manda user]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Keyur Bhavsar] but found [manda user]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at com.selise.nadim.testscripts.TC001_VerifyLogin.verifyUserProfileName(TC001_VerifyLogin.java:51)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserProfileName -->
+        <test-method is-config="true" signature="tearUp()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-03T12:15:06 BDT" name="tearUp" finished-at="2026-01-03T12:15:06 BDT" duration-ms="223" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearUp -->
+      </class> <!-- com.selise.nadim.testscripts.TC001_VerifyLogin -->
+      <class name="com.selise.nadim.testscripts.TC002_VerifyPIMModule">
+        <test-method signature="clickOnPIMTab()[pri:0, instance:com.selise.nadim.testscripts.TC002_VerifyPIMModule@68878f6d]" started-at="2026-01-03T12:14:41 BDT" name="clickOnPIMTab" finished-at="2026-01-03T12:15:06 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="24617" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clickOnPIMTab -->
+      </class> <!-- com.selise.nadim.testscripts.TC002_VerifyPIMModule -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
