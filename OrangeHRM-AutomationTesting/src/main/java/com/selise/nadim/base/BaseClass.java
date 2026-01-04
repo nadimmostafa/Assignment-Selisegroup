@@ -18,7 +18,7 @@ public class BaseClass {
 						.getPropertyData("browserName"), ConfigReader.getPropertyData("application-url"));
 	}
 	
-	//@AfterTest
+	@AfterTest
 	public void tearUp() {
 		driver.close();
 	}
