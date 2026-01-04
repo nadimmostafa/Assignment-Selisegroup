@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="7" passed="6" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-03T18:27:38 BDT" name="Suite" finished-at="2026-01-03T18:27:53 BDT" duration-ms="15394">
+  <suite started-at="2026-01-04T16:53:49 BDT" name="Suite" finished-at="2026-01-04T16:54:08 BDT" duration-ms="19512">
     <groups>
     </groups>
-    <test started-at="2026-01-03T18:27:38 BDT" name="Test" finished-at="2026-01-03T18:27:53 BDT" duration-ms="15394">
+    <test started-at="2026-01-04T16:53:49 BDT" name="Test" finished-at="2026-01-04T16:54:08 BDT" duration-ms="19512">
       <class name="com.selise.nadim.testscripts.TC001_VerifyLogin">
-        <test-method is-config="true" signature="startUp()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:38 BDT" name="startUp" finished-at="2026-01-03T18:27:45 BDT" duration-ms="7040" status="PASS">
+        <test-method is-config="true" signature="startUp()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:53:49 BDT" name="startUp" finished-at="2026-01-04T16:54:00 BDT" duration-ms="11348" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startUp -->
-        <test-method signature="verifyLoginFunctionality()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:45 BDT" name="verifyLoginFunctionality" finished-at="2026-01-03T18:27:48 BDT" duration-ms="3344" status="PASS">
+        <test-method signature="verifyLoginFunctionality()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:54:00 BDT" name="verifyLoginFunctionality" finished-at="2026-01-04T16:54:03 BDT" duration-ms="3339" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoginFunctionality -->
-        <test-method signature="verifyAdminModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:48 BDT" name="verifyAdminModuleTabPresent" finished-at="2026-01-03T18:27:49 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="809" status="PASS">
+        <test-method signature="verifyAdminModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:54:03 BDT" name="verifyAdminModuleTabPresent" finished-at="2026-01-04T16:54:04 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="678" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAdminModuleTabPresent -->
-        <test-method signature="verifyPIMModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:49 BDT" name="verifyPIMModuleTabPresent" finished-at="2026-01-03T18:27:49 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="25" status="PASS">
+        <test-method signature="verifyPIMModuleTabPresent()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:54:04 BDT" name="verifyPIMModuleTabPresent" finished-at="2026-01-04T16:54:04 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="25" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPIMModuleTabPresent -->
-        <test-method signature="verifyTitleIsDashboard()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:49 BDT" name="verifyTitleIsDashboard" finished-at="2026-01-03T18:27:49 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="27" status="PASS">
+        <test-method signature="verifyTitleIsDashboard()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:54:04 BDT" name="verifyTitleIsDashboard" finished-at="2026-01-04T16:54:04 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="22" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTitleIsDashboard -->
-        <test-method signature="verifyUserProfileName()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:49 BDT" name="verifyUserProfileName" finished-at="2026-01-03T18:27:49 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="32" status="FAIL">
+        <test-method signature="verifyUserProfileName()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@74287ea3]" started-at="2026-01-04T16:54:04 BDT" name="verifyUserProfileName" finished-at="2026-01-04T16:54:04 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="30" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Keyur Bhavsar] but found [manda user]]]>
@@ -73,17 +73,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserProfileName -->
-        <test-method is-config="true" signature="tearUp()[pri:0, instance:com.selise.nadim.testscripts.TC001_VerifyLogin@7d7758be]" started-at="2026-01-03T18:27:53 BDT" name="tearUp" finished-at="2026-01-03T18:27:53 BDT" duration-ms="132" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearUp -->
       </class> <!-- com.selise.nadim.testscripts.TC001_VerifyLogin -->
       <class name="com.selise.nadim.testscripts.TC002_VerifyPIMModule">
-        <test-method signature="clickOnPIMTab()[pri:0, instance:com.selise.nadim.testscripts.TC002_VerifyPIMModule@41488b16]" started-at="2026-01-03T18:27:49 BDT" name="clickOnPIMTab" finished-at="2026-01-03T18:27:52 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="2645" status="PASS">
+        <test-method signature="clickOnPIMTab()[pri:0, instance:com.selise.nadim.testscripts.TC002_VerifyPIMModule@68878f6d]" started-at="2026-01-04T16:54:04 BDT" name="clickOnPIMTab" finished-at="2026-01-04T16:54:07 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="2788" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickOnPIMTab -->
-        <test-method signature="verifyNamesNotEmpty()[pri:0, instance:com.selise.nadim.testscripts.TC002_VerifyPIMModule@41488b16]" started-at="2026-01-03T18:27:52 BDT" name="verifyNamesNotEmpty" finished-at="2026-01-03T18:27:53 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="1094" status="PASS">
+        <test-method signature="verifyNamesNotEmpty()[pri:0, instance:com.selise.nadim.testscripts.TC002_VerifyPIMModule@68878f6d]" started-at="2026-01-04T16:54:07 BDT" name="verifyNamesNotEmpty" finished-at="2026-01-04T16:54:08 BDT" depends-on-methods="com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality" duration-ms="1036" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyNamesNotEmpty -->

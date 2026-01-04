@@ -15,10 +15,10 @@ public class BaseClass {
 	public void startUp() {
 		driver = BrowserFactory
 				.initializeBrowser(ConfigReader
-						.getPropertyData("browser"), ConfigReader.getPropertyData("application-url"));
+						.getPropertyData("browserName"), ConfigReader.getPropertyData("application-url"));
 	}
 	
-	@AfterTest
+	//@AfterTest
 	public void tearUp() {
 		driver.close();
 	}

@@ -10,7 +10,6 @@
         <methods>
           <include name="verifyUserProfileName"/>
           <include name="verifyLoginFunctionality"/>
-          <include name="tearUp"/>
           <include name="startUp"/>
         </methods>
       </class> <!-- com.selise.nadim.testscripts.TC001_VerifyLogin -->

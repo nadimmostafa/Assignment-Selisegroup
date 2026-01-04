@@ -20,7 +20,7 @@ public class TC002_VerifyPIMModule extends BaseClass{
 	}
 	
 	@Test(dependsOnMethods = "com.selise.nadim.testscripts.TC001_VerifyLogin.verifyLoginFunctionality")
-	public void verifyNamesNotEmpty() {
+	public void verifyNamesNotEmptyAndAtleastOneEmpStatus() {
 		Assert.assertTrue(dashboard.extractEmployee());
 	}
 	

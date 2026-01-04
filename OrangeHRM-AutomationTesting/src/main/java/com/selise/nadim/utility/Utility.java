@@ -46,7 +46,7 @@ public class Utility {
 		}
 	}
 
-	// click element
+	// click on element
 	public static void clickOnElement(WebDriver driver, WebElement element) {
 		try {
 			element.click();
@@ -129,7 +129,7 @@ public class Utility {
 	}
 	
 	
-	public static boolean getEmployeeList(WebDriver driver, By locForName, By locForStatus ) {
+	public static boolean getEmployeeList(WebDriver driver, By locForName, By locForStatus) {
 		allNameElements = driver.findElements(locForName);
 		allEmployeeElements = driver.findElements(locForStatus);
 		
@@ -149,6 +149,8 @@ public class Utility {
 			i++;
 		}
 		
+		
+		//for debugging purpose
 		for(String s:storeNames) {
 			System.out.println(s);
 		}
@@ -158,21 +160,27 @@ public class Utility {
 		}
 		
 		// check Extracted name is not empty
-		return checkNonEmptyList(storeNames);
+		return checkEmployeeStatusAndEmptyName(storeNames, storeStatus);
 		
 	}
 	
 	// check Extracted name is not empty
 	public static boolean checkNonEmptyList(List<String> names) {
-		boolean allNamesValid = true;
-        for (String name : names) {
-            if (name.isEmpty()) {
-                allNamesValid = false;
-                break;
+		boolean allNamesValid = false;
+            if (names.stream().allMatch(name -> !name.trim().isEmpty())) {
+                allNamesValid = true;
             }
-        }
         
         return allNamesValid;
+	}
+	
+	
+	public static boolean checkEmployeeStatusAndEmptyName(List<String> names, List<String> status) {
+		boolean isValid = false;
+		if(names.stream().allMatch(name -> !name.trim().isEmpty()) && (status.contains("Full-Time Permanent"))) {
+			isValid= true;
+		}
+        return isValid;
 	}
 
 }
